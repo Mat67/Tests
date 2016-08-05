@@ -12,23 +12,20 @@ namespace Tests.Mock
 {
     public class FakeClientRepository : IRepositoryClient
     {
-        Mock<IRepositoryClient> _Mock = new Mock<IRepositoryClient>();
-        
-
+        //Mock<IRepositoryClient> _Mock = new Mock<IRepositoryClient>();
         public FakeClientRepository()
         {
-            _Mock.Setup(s => s.GetById(It.IsAny<string>())).Returns<string>(p => Data.Catalogue.OfType<Client>().FirstOrDefault(d => d.Id == p));
+            //_Mock.Setup(s => s.GetById(It.IsAny<string>())).Returns<string>(p => Catalogue.OfType<Client>().FirstOrDefault(d => d.Id == p));
         }
-
 
         public List<Client> GetAll()
         {
-            throw new NotImplementedException();
+            return Magasin.OfType<Client>().ToList();
         }
 
         public Client GetById(string id)
         {
-            throw new NotImplementedException();
+            return Magasin.OfType<Client>().FirstOrDefault(d => d.Id == id);
         }
     }
 }

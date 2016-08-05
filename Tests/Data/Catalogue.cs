@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Core.DTO;
+using Ploeh.AutoFixture;
+using Ploeh.AutoFixture.Dsl;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,16 +11,16 @@ namespace Tests.Data
 {
     public static class Catalogue
     {
-        public static List<T> OfType<T>()
+        private static Fixture _Fixture = new Fixture();
+
+        public static ICustomizationComposer<T> Build<T>()
         {
-            return _Datas.OfType<T>().ToList();
+            return _Fixture.Build<T>();
         }
 
-        public static void Clear()
+        public static IPostprocessComposer<Client> Administrateur(this ICustomizationComposer<Client> client)
         {
-            _Datas.Clear();
+            return client.With(w => w.Nom, "Nom");
         }
-
-        static List<object> _Datas = new List<object>();
     }
 }

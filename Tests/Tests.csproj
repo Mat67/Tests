@@ -93,9 +93,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Data\Catalogue.cs" />
+    <Compile Include="Data\Magasin.cs" />
+    <Compile Include="Extensions\AutoFixtureExtension.cs" />
     <Compile Include="Mock\FakeClientRepository.cs" />
-    <Compile Include="TestClient.cs" />
     <Compile Include="BaseTest.cs" />
+    <Compile Include="TestClient.cs" />
+    <Compile Include="SetUp.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

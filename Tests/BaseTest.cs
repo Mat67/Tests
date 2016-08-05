@@ -4,28 +4,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Tests.Data;
 
 namespace Tests
 {
-    [SetUpFixture]
     public class BaseTest
     {
-        public static Castle.Windsor.WindsorContainer Container = new Castle.Windsor.WindsorContainer();
-
-        [OneTimeSetUp]
-        public void BaseSetUp()
+        [TearDown]
+        public void TearDown()
         {
-            // Traitement effectué une seule fois au lancement des tests
-            // Initialisation base
-            // Chargement de données
-        }
-
-        [OneTimeTearDown]
-        public void BaseTearDown()
-        {
-            // Traitement effectué une seule fois après l'exécution des tests
-            // Suppression de la base
-            Data.Catalogue.Clear();
+            Data.Magasin.Clear();
+            Tests.SetUp.Container.Dispose();
+            //Container.Dispose();
+            Tests.SetUp.Container = new Castle.Windsor.WindsorContainer();
         }
     }
 }
