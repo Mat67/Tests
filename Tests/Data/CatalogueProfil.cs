@@ -9,15 +9,8 @@ using System.Threading.Tasks;
 
 namespace Tests.Data
 {
-    public static class Catalogue
+    public static class CatalogueProfilExtension
     {
-        private static Fixture _Fixture = new Fixture();
-
-        public static ICustomizationComposer<T> Build<T>()
-        {
-            return _Fixture.Build<T>();
-        }
-        
         public static IPostprocessComposer<Profil> TemplateProfilAdmin(this ICustomizationComposer<Profil> profil)
         {
             return profil

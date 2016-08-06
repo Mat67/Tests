@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{ED0210D7-0149-4A00-9FA6-E281893A6B09}</ProjectGuid>
+    <ProjectGuid>{FE2C483A-07A4-4BF2-B89C-23CC2CDAC31D}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Tests</RootNamespace>
-    <AssemblyName>Tests</AssemblyName>
+    <RootNamespace>Tests.Core</RootNamespace>
+    <AssemblyName>Tests.Core</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -92,36 +92,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Command\TestCommandAffectationContrat.cs" />
-    <Compile Include="Data\CatalogueProfil.cs" />
-    <Compile Include="Data\CatalogueUtilisateur.cs" />
-    <Compile Include="Mock\MockUtilisateurRepository.cs" />
-    <Compile Include="Mock\MockContratRepository.cs" />
-    <Compile Include="Mock\MockClientRepository.cs" />
-    <Compile Include="Repository\TestClient.cs" />
+    <Compile Include="BaseTest.cs" />
+    <Compile Include="Data\Catalogue.cs" />
+    <Compile Include="Data\Magasin.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Core.Impl\Core.Impl.csproj">
-      <Project>{5a3efadd-ca94-4212-9764-7cd66ac84cf9}</Project>
-      <Name>Core.Impl</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Core\Core.csproj">
       <Project>{4cb272c0-bc3f-42b7-8be9-f77e2c145aa1}</Project>
       <Name>Core</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Tests.Core\Tests.Core.csproj">
-      <Project>{fe2c483a-07a4-4bf2-b89c-23cc2cdac31d}</Project>
-      <Name>Tests.Core</Name>
-    </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

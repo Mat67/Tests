@@ -6,24 +6,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Tests.Core.Data;
 
 namespace Tests.Data
 {
-    public class CatalogueSingleton<T>
-        where T: CatalogueUtilisateur
-    {
-        static CatalogueUtilisateur singleton;
-        protected static CatalogueUtilisateur _Singleton
-        {
-            get
-            {
-                BaseTest.TearDownEvent += (s, e) => { singleton = null; };
-
-                return singleton == null ? singleton = new CatalogueUtilisateur() : singleton;
-            }
-        }
-    }
-
     public class CatalogueUtilisateur : CatalogueSingleton<CatalogueUtilisateur>
     {
         private Utilisateur administrateur;

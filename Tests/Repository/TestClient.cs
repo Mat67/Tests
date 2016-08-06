@@ -9,11 +9,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Tests.Mock;
-using Tests.Data;
+using Tests.Core.Data;
 using Core;
 using Moq;
 
-namespace Tests
+namespace Tests.Repository
 {
     [TestFixture]
     public class TestClient : BaseTest

@@ -12,6 +12,7 @@ using Tests.Mock;
 using Tests.Data;
 using Core;
 using Core.Impl.Command;
+using Tests.Core.Data;
 
 namespace Tests
 {

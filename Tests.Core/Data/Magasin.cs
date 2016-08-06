@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Tests.Data
+namespace Tests.Core.Data
 {
     public static class Magasin
     {

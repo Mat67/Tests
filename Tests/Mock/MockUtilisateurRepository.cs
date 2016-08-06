@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using Core.DTO;
 using Moq;
 using Tests.Data;
+using Tests.Core.Data;
 
 namespace Tests.Mock
 {
