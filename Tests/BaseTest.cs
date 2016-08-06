@@ -1,4 +1,5 @@
-﻿using NUnit.Framework;
+﻿using Core;
+using NUnit.Framework;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,9 +15,9 @@ namespace Tests
         public void TearDown()
         {
             Data.Magasin.Clear();
-            Tests.SetUp.Container.Dispose();
+            AEContainer.Container.Dispose();
             //Container.Dispose();
-            Tests.SetUp.Container = new Castle.Windsor.WindsorContainer();
+            AEContainer.Container = new Castle.Windsor.WindsorContainer();
         }
     }
 }

@@ -8,19 +8,19 @@ using Core.DTO;
 
 namespace Core.Impl.Repository
 {
-    public class RepositoryClient : IRepositoryClient
+    public class RepositoryUtilisateur : IRepositoryUtilisateur
     {
         public List<Client> GetAll()
         {
             throw new NotImplementedException();
         }
 
-        public Client GetById(string id)
+        public Utilisateur GetById(string id)
         {
             throw new NotImplementedException();
         }
 
-        public bool Saves(Client client, Utilisateur utilisateur)
+        public Utilisateur GetByLogin(string login)
         {
             throw new NotImplementedException();
         }

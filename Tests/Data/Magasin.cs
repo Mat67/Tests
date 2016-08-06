@@ -13,7 +13,12 @@ namespace Tests.Data
             return _Datas.OfType<T>().ToList();
         }
 
-        public static void Populate<T>(List<T> datas)
+        public static void Populate<T>(IList<T> datas)
+        {
+            _Datas.AddRange(datas.Cast<object>());
+        }
+
+        public static void Populate<T>(IEnumerable<T> datas)
         {
             _Datas.AddRange(datas.Cast<object>());
         }

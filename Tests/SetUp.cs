@@ -1,4 +1,5 @@
-﻿using NUnit.Framework;
+﻿using Core;
+using NUnit.Framework;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,15 +11,13 @@ namespace Tests
     [SetUpFixture]
     public class SetUp
     {
-        public static Castle.Windsor.WindsorContainer Container;
-
         [OneTimeSetUp]
         public void BaseSetUp()
         {
             // Traitement effectué une seule fois au lancement des tests
             // Initialisation base
             // Chargement de données
-            Container = new Castle.Windsor.WindsorContainer();
+            AEContainer.Container = new Castle.Windsor.WindsorContainer();
         }
 
         [OneTimeTearDown]

@@ -1,6 +1,6 @@
 ﻿namespace Core.DTO
 {
-    public class Habilitation
+    public abstract class Habilitation
     {
     }
 }

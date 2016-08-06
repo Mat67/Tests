@@ -92,10 +92,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Command\TestCommandAffectationContrat.cs" />
     <Compile Include="Data\Catalogue.cs" />
     <Compile Include="Data\Magasin.cs" />
-    <Compile Include="Extensions\AutoFixtureExtension.cs" />
-    <Compile Include="Mock\FakeClientRepository.cs" />
+    <Compile Include="Mock\MockUtilisateurRepository.cs" />
+    <Compile Include="Mock\MockContratRepository.cs" />
+    <Compile Include="Mock\MockClientRepository.cs" />
     <Compile Include="BaseTest.cs" />
     <Compile Include="TestClient.cs" />
     <Compile Include="SetUp.cs" />

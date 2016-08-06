@@ -6,12 +6,16 @@ using System.Threading.Tasks;
 
 namespace Core.DTO
 {
-    public class Client
+    public class Utilisateur
     {
         public string Id { get; set; }
+
+        public string Login { get; set; }
 
         public string Nom { get; set; }
 
         public string Prenom { get; set; }
+
+        public Profil Profil { get; set; }
     }
 }

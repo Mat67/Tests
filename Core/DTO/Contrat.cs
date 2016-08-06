@@ -18,6 +18,6 @@ namespace Core.DTO
 
         public Client Payeur { get; set; }
 
-        public List<Contrat> Contrats { get; set; }
+        public DateTime? DateFin { get; set; }
     }
 }
