@@ -18,12 +18,6 @@ namespace Tests.Repository
     [TestFixture]
     public class TestClient : BaseTest
     {
-        [SetUp]
-        public void SetUp()
-        {
-            
-        }
-
         [Test]
         public void TestGetByIdSuccess()
         {
