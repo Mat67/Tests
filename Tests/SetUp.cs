@@ -26,5 +26,6 @@ namespace Tests
             // Traitement effectué une seule fois après l'exécution des tests
             // Suppression de la base
         }
+
     }
 }

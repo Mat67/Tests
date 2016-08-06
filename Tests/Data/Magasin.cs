@@ -8,9 +8,9 @@ namespace Tests.Data
 {
     public static class Magasin
     {
-        public static List<T> OfType<T>()
+        public static IEnumerable<T> OfType<T>()
         {
-            return _Datas.OfType<T>().ToList();
+            return _Datas.OfType<T>();
         }
 
         public static void Populate<T>(IList<T> datas)

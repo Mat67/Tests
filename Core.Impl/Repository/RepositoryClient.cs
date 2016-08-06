@@ -20,7 +20,7 @@ namespace Core.Impl.Repository
             throw new NotImplementedException();
         }
 
-        public bool Saves(Client client, Utilisateur utilisateur)
+        public void Save(Client client)
         {
             throw new NotImplementedException();
         }

@@ -93,6 +93,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Command\TestCommandAffectationContrat.cs" />
+    <Compile Include="Data\CatalogueUtilisateur.cs" />
     <Compile Include="Data\Catalogue.cs" />
     <Compile Include="Data\Magasin.cs" />
     <Compile Include="Mock\MockUtilisateurRepository.cs" />

@@ -18,6 +18,11 @@ namespace Tests
             AEContainer.Container.Dispose();
             //Container.Dispose();
             AEContainer.Container = new Castle.Windsor.WindsorContainer();
+
+            if (TearDownEvent != null)
+                TearDownEvent(this, new EventArgs());
         }
+
+        public static event EventHandler TearDownEvent;
     }
 }

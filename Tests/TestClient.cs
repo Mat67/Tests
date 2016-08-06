@@ -21,15 +21,17 @@ namespace Tests
         [SetUp]
         public void SetUp()
         {
-            var client = Catalogue.Build<Client>()
-                .With(w => w.Id, "1").Create();
-
-            Magasin.Populate(client);
+            
         }
 
         [Test]
         public void TestGetByIdSuccess()
         {
+            var client = Catalogue.Build<Client>()
+                   .With(w => w.Id, "1").Create();
+
+            Magasin.Populate(client);
+
             AEContainer.Container.Register(Component.For<IRepositoryClient>().Instance(new MockClientRepository().Object));
 
             var result = AEContainer.Container.Resolve<IRepositoryClient>().GetById("1");
@@ -40,6 +42,11 @@ namespace Tests
         [Test]
         public void TestGetByIdFailed()
         {
+            var client = Catalogue.Build<Client>()
+                .With(w => w.Id, "1").Create();
+
+            Magasin.Populate(client);
+
             var instance = new MockClientRepository();
             instance.Setup(s => s.GetById(It.IsAny<string>())).Returns(new Client());
 
@@ -61,6 +68,35 @@ namespace Tests
 
             Assert.IsNotNull(resultat);
             Assert.Greater(resultat.Count, 0);
+        }
+
+        [Test]
+        public void TestCreateClient()
+        {
+            AEContainer.Container.Register(Component.For<IRepositoryClient>().Instance(new MockClientRepository().Object));
+            var client = Catalogue.Build<Client>().Create();
+
+            AEContainer.Container.Resolve<IRepositoryClient>().Save(client);
+
+            Assert.AreEqual(1, Magasin.OfType<Client>().Count());
+            Assert.IsNotNull(Magasin.OfType<Client>().FirstOrDefault());
+            Assert.AreEqual(Magasin.OfType<Client>().FirstOrDefault(), client);
+        }
+
+        [Test]
+        public void TestUpdateClient()
+        {
+            AEContainer.Container.Register(Component.For<IRepositoryClient>().Instance(new MockClientRepository().Object));
+            var client = Catalogue.Build<Client>().Create();
+            Magasin.Populate(client);
+
+            client.Nom = "566";
+            AEContainer.Container.Resolve<IRepositoryClient>().Save(client);
+
+            Assert.AreEqual(1, Magasin.OfType<Client>().Count());
+            Assert.IsNotNull(Magasin.OfType<Client>().FirstOrDefault());
+            Assert.AreEqual(Magasin.OfType<Client>().FirstOrDefault(), client);
+            Assert.AreEqual(Magasin.OfType<Client>().FirstOrDefault().Nom, client.Nom);
         }
     }
 }

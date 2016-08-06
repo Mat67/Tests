@@ -12,5 +12,7 @@ namespace Core.Repository
         Client GetById(string id);
 
         List<Client> GetAll();
+
+        void Save(Client client);
     }
 }

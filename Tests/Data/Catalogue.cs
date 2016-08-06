@@ -17,23 +17,8 @@ namespace Tests.Data
         {
             return _Fixture.Build<T>();
         }
-
-        public static IPostprocessComposer<Utilisateur> Administrateur(this ICustomizationComposer<Utilisateur> utilisateur)
-        {
-            return utilisateur
-                .With(w => w.Login, "Admin")
-                .With(w =>w.Profil, Catalogue.Build<Profil>().ProfilAdmin().Create());
-        }
-
-        public static IPostprocessComposer<Utilisateur> UtilisateurLambda(this ICustomizationComposer<Utilisateur> utilisateur)
-        {
-            return utilisateur
-                .With(w => w.Login, "Admin")
-                .With(w => w.Profil, Catalogue.Build<Profil>()
-                .With(m => m.Habilitations, new List<Habilitation>()).Create());
-        }
-
-        public static IPostprocessComposer<Profil> ProfilAdmin(this ICustomizationComposer<Profil> profil)
+        
+        public static IPostprocessComposer<Profil> TemplateProfilAdmin(this ICustomizationComposer<Profil> profil)
         {
             return profil
                 .With(w => w.Habilitations, new List<Habilitation>() { new HabilitationAdministrateur() })

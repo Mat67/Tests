@@ -21,7 +21,7 @@ namespace Tests
         [SetUp]
         public void SetUp()
         {
-            Magasin.Populate(Catalogue.Build<Utilisateur>().Administrateur().Create());
+            Magasin.Populate(CatalogueUtilisateur.Administrateur);
             Magasin.Populate(Catalogue.Build<Contrat>().Without(w => w.DateFin).With(x => x.Id, "5").Create());
 
             AEContainer.Container.Register(Component.For<IRepositoryUtilisateur>().Instance(new MockUtilisateurRepository().Object));
@@ -32,7 +32,7 @@ namespace Tests
         public void TestCommand()
         {
             var cmd = new CommandResiliationContrat();
-            cmd.Execute("5", "Admin");
+            cmd.Execute("5", CatalogueUtilisateur.Administrateur.Login);
 
             var ct = Magasin.OfType<Contrat>().FirstOrDefault();
             Assert.IsNotNull(ct.DateFin);
